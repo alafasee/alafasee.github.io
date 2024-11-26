@@ -31,15 +31,12 @@
 
     async function fetchShopifyData() {
       const response = await fetch(
-        `https://${storeDomain}/api/2024-07/graphql.json`, {
+        `https://${storeDomain}/api/2024-07/graphql.json?query=${encodeURIComponent(query)}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
             "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
-          },
-          body: JSON.stringify({
-            query,
-          }),
+          }
         }
       );
 
